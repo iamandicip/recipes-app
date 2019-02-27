@@ -4,5 +4,5 @@ ports:
 
 tasks:
 - init: npm install && npm install -g @angular/cli
-  command: ng serve --hostname 0.0.0.0
+  command: ng serve --host 0.0.0.0
 - command: gp preview $(gp url 4200)
