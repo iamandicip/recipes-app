@@ -1,4 +1,6 @@
 ports:
 - port: 4200
 tasks:
-- command: npm install && npm install -g @angular/cli
+- command: npm install
+- command: npm install -g @angular/cli
+- command: ng serve --hostname 0.0.0.0
