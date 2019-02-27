@@ -1,8 +1,8 @@
 ports:
 - port: 4200
-- onOpen: notify
+  onOpen: notify
 
 tasks:
-- init: npm install
-- init: npm install -g @angular/cli
+- init: npm install && npm install -g @angular/cli
 - command: ng serve --hostname 0.0.0.0
+- command: gp preview $(gp url 4200)
