@@ -1,7 +1,6 @@
 ports:
 - port: 4200
 - onOpen: notify
-
 tasks:
 - init: npm install
 - init: npm install -g @angular/cli
