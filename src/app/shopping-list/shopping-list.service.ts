@@ -1,8 +1,8 @@
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export class ShoppingListService {
-    ingredientsChanged = new EventEmitter<Ingredient[]>();
+    ingredientsChanged = new Subject<Ingredient[]>();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 10),
@@ -12,7 +12,7 @@ export class ShoppingListService {
     addIngredient(newIngredient: Ingredient) {
         if (newIngredient) {
             this.ingredients.push(newIngredient);
-            this.ingredientsChanged.emit(this.getIngredients());
+            this.ingredientsChanged.next(this.getIngredients());
         }
     }
 
@@ -20,7 +20,7 @@ export class ShoppingListService {
         // spread operator from ES6: it transforms the array into separate elements
         // and push supports multiple arguments
         this.ingredients.push(...ingredients);
-        this.ingredientsChanged.emit(this.getIngredients());
+        this.ingredientsChanged.next(this.getIngredients());
     }
 
     getIngredients() {
